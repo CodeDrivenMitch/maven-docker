@@ -1,15 +1,8 @@
 FROM twalter/maven-docker
 MAINTAINER Mitchell Herrijgers
 
-# AWS install script from https://hub.docker.com/r/mesosphere/aws-cli/~/dockerfile/
-RUN apk -v --update add \
-        python \
-        py-pip \
-        groff \
-        less \
-        mailcap \
-        && \
-    pip install --upgrade awscli s3cmd python-magic && \
-    apk -v --purge del py-pip && \
-    rm /var/cache/apk/*
+RUN apt-get install -y python python-pip
+RUN pip install --upgrade awscli s3cmd python-magic
+RUN apt-get remove -y --purge python-pip
+RUN rm -r /var/cache/apt/*
 VOLUME /root/.aws
