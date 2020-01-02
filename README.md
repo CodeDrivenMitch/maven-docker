@@ -1,9 +1,7 @@
-# Maven 8 CI/CD
+# Maven and Docker
 
 Docker image which will work perfect if you need all or some of the following components:
 
-- Maven 3.3.9
-- AWS CLI
-- Python
-- Java 8
+- Maven 3.6
+- Java 11
 - Docker executables
